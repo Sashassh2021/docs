@@ -40,13 +40,15 @@ You can open any {% data variables.product.prodname_dotcom %} repository in {% d
   To open the repository in a new browser tab, press <kbd>></kbd>.
 
 - Change the URL from "github.com" to "github.dev".
-- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **github.dev**.
+- When viewing a file, select the {% octicon "triangle-down" aria-label="More edit options" %} dropdown menu and click **github.dev**.
 
   ![Screenshot of the dropdown menu for the edit icon. The option "github.dev" is highlighted with a dark orange outline.](/assets/images/help/codespaces/github-dev-dropdown-option.png)
 
 ## {% data variables.product.prodname_codespaces %} and {% data variables.codespaces.serverless %}
 
 Both {% data variables.codespaces.serverless %} and {% data variables.product.prodname_github_codespaces %} allow you to edit your code straight from your repository. However, both have slightly different benefits, depending on your use case.
+
+{% rowheaders %}
 
 || {% data variables.codespaces.serverless %} | {% data variables.product.prodname_github_codespaces %}|
 |-|----------------|---------|
@@ -56,6 +58,8 @@ Both {% data variables.codespaces.serverless %} and {% data variables.product.pr
 | **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With  {%  data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
 | **Terminal access** | None. | {% data variables.product.prodname_github_codespaces %} provides a common set of tools by default, meaning that you can use the Terminal exactly as you would in your local environment.|
 | **Extensions**  | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. For more information, see "[Using extensions](#using-extensions)."| With {% data variables.product.prodname_github_codespaces %}, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.|
+
+{% endrowheaders %}
 
 ### Continue working on {% data variables.product.prodname_codespaces %}
 
@@ -67,7 +71,7 @@ To continue your work in a codespace, click **Continue Working on…** and selec
 
 ## Using source control
 
-When you use {% data variables.codespaces.serverless %}, all actions are managed through the Source Control View, which is located in the Activity Bar on the left hand side. For more information on the Source Control View, see "[Version Control](https://code.visualstudio.com/docs/editor/versioncontrol)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+When you use {% data variables.codespaces.serverless %}, all actions are managed through the "Source Control" view, which is located in the Activity Bar on the left hand side. For more information on the "Source Control" view, see "[Version Control](https://code.visualstudio.com/docs/editor/versioncontrol)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 Because {% data variables.codespaces.serverless %} uses the GitHub Repositories extension to power its functionality, you can switch branches without needing to stash changes. For more information, see "[GitHub Repositories](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
@@ -88,7 +92,7 @@ Because {% data variables.codespaces.serverless %} uses the GitHub Repositories 
 
 1. In the text box, type a commit message describing the change you've made.
 
-   ![Screenshot of the "Source control" side bar with a commit message entered into the text box above the "Commit" button.](/assets/images/help/codespaces/githubdotdev-codespaces-commit-message.png)  
+   ![Screenshot of the "Source control" side bar with a commit message entered into the text box above the "Commit" button.](/assets/images/help/codespaces/githubdotdev-codespaces-commit-message.png)
 
 1. Click **Commit & Push**.
 
@@ -103,8 +107,8 @@ Because {% data variables.codespaces.serverless %} uses the GitHub Repositories 
 You can use {% data variables.codespaces.serverless %} to work with an existing pull request.
 
 1. Browse to the pull request you'd like to open in {% data variables.codespaces.serverless %}.
-2. Press `.` to open the pull request in {% data variables.codespaces.serverless %}.
-3. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
+1. Press `.` to open the pull request in {% data variables.codespaces.serverless %}.
+1. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
 
 ## Using extensions
 

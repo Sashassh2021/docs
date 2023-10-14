@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # To update the sha, run `docker pull node:$VERSION-alpine`
 # look for something like: `Digest: sha256:0123456789abcdef`
-FROM node:18.14-alpine@sha256:f8a51c36b0be7434bbf867d4a08decf0100e656203d893b9b0f8b1fe9e40daea as base
+FROM node:20-alpine@sha256:37750e51d61bef92165b2e29a77da4277ba0777258446b7a9c99511f119db096 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -44,11 +44,11 @@ RUN npm prune --production
 # ---------------
 FROM all_deps as builder
 
-COPY stylesheets ./stylesheets
-COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
 COPY src ./src
+# The star is because it's an optional directory
+COPY .remotejson-cache* ./.remotejson-cache
 # Certain content is necessary for being able to build
 COPY content/index.md ./content/index.md
 COPY content/rest ./content/rest
@@ -90,6 +90,7 @@ COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node src ./src
+COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
 COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./

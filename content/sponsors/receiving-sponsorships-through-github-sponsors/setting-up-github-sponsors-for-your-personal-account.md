@@ -27,8 +27,6 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 1. Click **Join the waitlist**.
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.payout-choice %}
-  ![Screenshot of option to choose between a bank account and a fiscal host](/assets/images/help/sponsors/user-waitlist-payout-options.png)
-
 {% data reusables.sponsors.accept-legal-terms %}
 
 If you have a bank account in a supported region, {% data variables.product.prodname_dotcom %} will review your application within two weeks.
@@ -88,6 +86,6 @@ Before you can become a sponsored developer, you must enable 2FA for your accoun
 ## Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-4. Click **Request approval**.
+1. Click **Request approval**.
 
 {% data reusables.sponsors.github-review-app %}

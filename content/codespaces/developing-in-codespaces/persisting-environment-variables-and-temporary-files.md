@@ -22,7 +22,7 @@ For all the methods of setting custom variables listed below, you can access the
 
 You can set the value of the environment variable in the `~/.bashrc` file, or in an equivalent configuration file if you are not using the Bash shell. For example, add the statement `VARNAME=value`.
 
-After you save the change to this file, the value will be set the next time you open the codespace, or you can set it immediately by using a command such as `source ~/.bashrc`. The variable will remain set if you stop and start the codespace. However, changes to files in the home directory will be reset if you rebuild the container, so variables set in the `~/.bashrc` file will not persist over a rebuild.
+After you save the change to this file, the value will be set the next time you open the codespace, or you can set it immediately by using a command such as `source ~/.bashrc`. The variable will remain set if you stop and start the codespace. However, changes to files in the home directory will be reset if you rebuild the container, so variables set in the `~/.bashrc` file will not persist over a rebuild. For more information, see "[Preventing temporary files from being automatically deleted](#preventing-temporary-files-from-being-automatically-deleted)."
 
 ### For all codespaces for a repository
 
@@ -30,13 +30,13 @@ There are three ways that you can set persistent custom environment variables fo
 
 - You can edit the `devcontainer.json` configuration file for the repository
 - You can use a custom Dockerfile
-- You can use encrypted secrets
+- You can use secrets
 
 #### Edit the `devcontainer.json` configuration file for the repository
 
 Edit the `devcontainer.json` configuration file for the repository, and use the `remoteEnv` property to set the environment variable value:
 
-```
+```json
 {
     "remoteEnv": {
       "VARNAME": "value"
@@ -44,7 +44,7 @@ Edit the `devcontainer.json` configuration file for the repository, and use the 
 }
 ```
 
-Only use this method for values that you are happy to commit to your repository as plaintext. For sensitive values such as access tokens, use encrypted secrets.
+Only use this method for values that you are happy to commit to your repository as plaintext. For sensitive values such as access tokens, use secrets.
 
 The environment variable will be set within your editor's remote server process, and will be available for sub-processes of that remote server process, such as terminals and debugging sessions. However, the variable will not be available more broadly inside the container. This method is useful if you don't need the environment variable to be set for other background processes that run at startup, and if you are using a premade image and don't have or want a custom Dockerfile.
 
@@ -58,9 +58,9 @@ This method is useful if you already have a Dockerfile and want to set a variabl
 
 This setting will take effect when you rebuild your container or create a new codespace after pushing this change to the repository. For more information about applying configuration changes to a codespace, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
-#### Use encrypted secrets
+#### Use secrets
 
-You can use encrypted secrets for {% data variables.product.prodname_github_codespaces %} to set custom variables for codespaces created for the repository. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+You can use secrets for {% data variables.product.prodname_github_codespaces %} to set custom variables for codespaces created for the repository. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
 
 You should use this method for environment variable values that you do not want to commit to the repository as plaintext.
 
@@ -72,6 +72,12 @@ If you want to set a personalized environment variable for all codespaces that y
 
 ## Preventing temporary files from being automatically deleted
 
-Files saved to your workspace will be available the next time you start the codespace. The exception to this is any file you save in the `/tmp` directory. The contents of this directory are deleted each time the codespace stops (for example, when the codespace session times out after a period of inactivity).
+{% data reusables.codespaces.workspaces-directory %} For information about creating symlinks to preserve data outside the `/workspaces` directory, see "[AUTOTITLE](/codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace#persisting-data-over-a-rebuild)."
 
-If you have temporary files that you want to be available the next time you start the codespace, do not save them in the `/tmp` directory. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+The `/tmp` directory is an exception because it is mounted into the container, but it is not persistent. Therefore, the contents of the `/tmp` directory are persisted over a rebuild, but are cleared each time the codespace stops. For example, the `/tmp` directory is cleared when a codespace session times out after a period of inactivity. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+
+If you have temporary files that you want to be available the next time you start the codespace, do not save them in the `/tmp` directory.
+
+## Further reading
+
+- "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"

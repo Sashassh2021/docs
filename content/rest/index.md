@@ -8,16 +8,16 @@ introLinks:
 featuredLinks:
   startHere:
     - /rest/guides/getting-started-with-the-rest-api
-    - /rest/guides/basics-of-authentication
-    - /rest/guides/best-practices-for-integrators
+    - /rest/overview/authenticating-to-the-rest-api
+    - /rest/guides/best-practices-for-using-the-rest-api
     - /rest/guides/using-pagination-in-the-rest-api
   popular:
     - /rest/overview/resources-in-the-rest-api
     - /rest/overview/api-versions
-    - /rest/overview/other-authentication-methods
+    - /rest/overview/authenticating-to-the-rest-api
     - /rest/overview/troubleshooting
     - /rest/guides/scripting-with-the-rest-api-and-javascript
-    - /rest/overview/openapi-description
+    - /rest/overview/keeping-your-api-credentials-secure
   guideCards:
     - /rest/guides/delivering-deployments
     - /rest/guides/using-the-rest-api-to-interact-with-checks
@@ -44,11 +44,13 @@ children:
   - /billing
   - /branches
   - /checks
-  - /codes-of-conduct
+  - /classroom
   - /code-scanning
+  - /codes-of-conduct
   - /codespaces
   - /collaborators
   - /commits
+  - /copilot
   - /dependabot
   - /dependency-graph
   - /deploy-keys
@@ -78,6 +80,7 @@ children:
   - /scim
   - /search
   - /secret-scanning
+  - /security-advisories
   - /teams
   - /users
   - /webhooks
